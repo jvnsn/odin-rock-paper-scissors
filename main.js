@@ -1,4 +1,5 @@
-let humanScore, computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     let rndm = Math.floor(Math.random() * 3);
@@ -33,7 +34,22 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
 
+        playRound(humanSelection, computerSelection);
+    }
 
+    if (humanScore > computerScore) {
+        console.log(`YOU WIN! Your Score: ${humanScore}, Computer Score: ${computerScore}.`);
+    } else if (humanScore < computerScore) {
+        console.log(`YOU LOSE! Your Score: ${humanScore}, Computer Score: ${computerScore}.`);
+    } else {
+        console.log(`It's a tie! Your Score: ${humanScore}, Computer Score: ${computerScore}.`);
+    }
+}
 
+playGame()
 
